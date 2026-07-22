@@ -327,11 +327,19 @@
           "px) scale(" +
           scale.toFixed(3) +
           ")";
-        const g = Math.round(0x6e + fall * 0.45 * 60);
-        el.style.fill = "rgb(" + g + "," + g + "," + g + ")";
+        // Lighten toward white on hover; keep orange-ish if base is warm
+        const base = el.getAttribute("data-fill") || "";
+        if (base.indexOf("#ff") === 0 || base.indexOf("#e8") === 0 || base.indexOf("#f0") === 0 || base.indexOf("#d9") === 0 || base.indexOf("#c9") === 0) {
+          el.style.fill = fall > 0.5 ? "#ff8a40" : base;
+        } else {
+          const g = Math.round(0x6e + fall * 0.45 * 60);
+          el.style.fill = "rgb(" + g + "," + g + "," + g + ")";
+        }
       } else {
         el.style.transform = "";
-        el.style.fill = "";
+        // Restore organic tone if set
+        const base = el.getAttribute("data-fill");
+        el.style.fill = base || "";
       }
     });
 

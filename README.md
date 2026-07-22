@@ -31,4 +31,4 @@ Design mockups (20 variants) live in the extension monorepo under `localtools/wa
 
 ## Extension
 
-The VS Code / Cursor extension is a **separate** repository — not this site.
+The VS Code / Cursor extension lives at **https://github.com/warpte-labs/warp** (org: [warpte-labs](https://github.com/warpte-labs)).
